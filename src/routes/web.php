@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+use App\Models\Person;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +14,6 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', [AuthController::class, 'index']);
+Route::get('/softdelete', function () {
+    Person::find(1)->delete();
+});
